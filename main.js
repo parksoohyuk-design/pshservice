@@ -1,6 +1,24 @@
 
 const generatorBtn = document.getElementById('generator-btn');
 const lottoNumbersContainer = document.getElementById('lotto-numbers');
+const themeBtn = document.getElementById('theme-btn');
+const body = document.body;
+
+// Check for saved theme preference
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+    body.setAttribute('data-theme', savedTheme);
+    themeBtn.textContent = savedTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
+}
+
+themeBtn.addEventListener('click', () => {
+    const currentTheme = body.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    body.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    themeBtn.textContent = newTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
+});
 
 generatorBtn.addEventListener('click', () => {
     const numbers = generateLottoNumbers();
