@@ -1,4 +1,3 @@
-
 :root {
     --primary-color: #4a90e2;
     --background-color: #f0f4f8;
@@ -23,7 +22,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -35,11 +34,30 @@ body {
     border-radius: 12px;
     box-shadow: 0 10px 20px var(--shadow-color);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    width: 90%;
+    max-width: 500px;
 }
 
 h1 {
     color: var(--primary-color);
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+}
+
+.selector-container {
+    margin-bottom: 20px;
+}
+
+.selector-container label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+#count-select {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid var(--primary-color);
+    background-color: var(--card-bg);
+    color: var(--text-color);
 }
 
 .theme-toggle {
@@ -75,6 +93,7 @@ h1 {
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
     box-shadow: 0 4px 10px rgba(74, 144, 226, 0.4);
+    margin-bottom: 30px;
 }
 
 #generator-btn:hover {
@@ -82,23 +101,37 @@ h1 {
     transform: translateY(-2px);
 }
 
+#generator-btn:active {
+    transform: translateY(0);
+}
+
 .lotto-numbers-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     gap: 15px;
-    margin-top: 30px;
+}
+
+.lotto-set {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    animation: fadeIn 0.5s ease-out;
 }
 
 .lotto-number {
+    width: 40px;
+    height: 40px;
+    background-color: var(--number-bg);
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: var(--number-bg);
-    font-size: 22px;
     font-weight: bold;
-    color: var(--text-color);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 16px;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
